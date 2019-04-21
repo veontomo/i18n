@@ -1,0 +1,1 @@
+This is an attempt to use i18n in a java project. 

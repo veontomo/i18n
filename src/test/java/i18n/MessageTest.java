@@ -6,7 +6,7 @@ import java.util.Locale;
 
 import org.junit.Test;
 
-public class mailbox {
+public class MessageTest {
 
     @Test
     public void whenInEnglish_thenAlice() {

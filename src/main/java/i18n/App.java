@@ -34,10 +34,9 @@ public class App {
     }
 
     public static String getMessage(Locale locale, String name, String gender, int num) {
-        final String messageBundle = "messages";
-        ResourceBundle b2 = ResourceBundle.getBundle(messageBundle, locale);
-        MessageFormat mf2 = new MessageFormat(b2.getString("msg2"));
-        return mf2.format(new Object[] { name, gender, num });
+        ResourceBundle bundle = ResourceBundle.getBundle("messages", locale);
+        MessageFormat formatter = new MessageFormat(bundle.getString("mailbox"));
+        return formatter.format(new Object[] { name, gender, num });
     }
 
     public static void main(String[] args) {

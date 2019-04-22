@@ -1,6 +1,5 @@
 package i18n;
 
-import java.text.FieldPosition;
 import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -32,6 +31,13 @@ public class App {
         MessageFormat mf2 = new MessageFormat(b2.getString("msg2"));
         System.out.println(mf2.format(new Object[] { "Alice", 1, "female" }));
         System.out.println(mf2.format(new Object[] { "Bob", 10, "male" }));
+    }
+
+    public static String getMessage(Locale locale, String name, String gender, int num) {
+        final String messageBundle = "messages";
+        ResourceBundle b2 = ResourceBundle.getBundle(messageBundle, locale);
+        MessageFormat mf2 = new MessageFormat(b2.getString("msg2"));
+        return mf2.format(new Object[] { name, gender, num });
     }
 
     public static void main(String[] args) {

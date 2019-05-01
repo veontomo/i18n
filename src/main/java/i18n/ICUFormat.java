@@ -1,0 +1,23 @@
+package i18n;
+
+import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
+
+import com.ibm.icu.text.MessageFormat;
+
+public class ICUFormat {
+
+    public static String getLabel(Locale locale, Object[] data) {
+        ResourceBundle bundle = ResourceBundle.getBundle("formats", locale);
+        String format = bundle.getString("label-icu");
+        MessageFormat formatter = new MessageFormat(format, locale);
+        return formatter.format(data);
+    }
+
+    public static void run(List<Locale> locales) {
+        System.out.println("ICU formatter");
+        locales.forEach(locale -> System.out.println(getLabel(locale, new Object[] { "Alice", "female", 0 })));
+        locales.forEach(locale -> System.out.println(getLabel(locale, new Object[] { "Bob", "male", 10 })));
+    }
+}
